@@ -112,5 +112,5 @@ You can access the live application here:
 
 1. **Clone or download the repository**
    ```bash
-   git clone https://github.com/yourusername/pamir-payroll-system.git
+   git clone https://github.com/Vishal20244/salary_slip-generator.git
    cd pamir-payroll-system

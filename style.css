@@ -1,0 +1,401 @@
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+        }
+        body {
+            background: #eef2f5;
+            padding: 1.5rem;
+            color: #1a2c3e;
+        }
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-left: 5px solid #c0392b;
+        }
+        .logo-area h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #c0392b;
+        }
+        .logo-area p {
+            font-size: 0.75rem;
+            color: #e67e22;
+            font-weight: 500;
+        }
+        .stats-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        .stat-card {
+            background: white;
+            flex: 1 1 150px;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        .stat-card .stat-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #c0392b;
+        }
+        .stat-card .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .upload-section {
+            background: white;
+            border-radius: 8px;
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid #ddd;
+        }
+        .dropzone {
+            border: 2px dashed #c0392b;
+            border-radius: 8px;
+            background: #fef5f0;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+        }
+        .dropzone:hover {
+            background: #fff0e6;
+        }
+        .dropzone i {
+            font-size: 2rem;
+            color: #c0392b;
+        }
+        .required-badge {
+            background: #f0e6e0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            display: inline-block;
+            margin-top: 8px;
+        }
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+            gap: 10px;
+        }
+        .search-wrapper {
+            background: white;
+            border-radius: 30px;
+            padding: 0.4rem 1.5rem;
+            border: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 2;
+            min-width: 220px;
+        }
+        .search-wrapper input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+        .employee-count {
+            background: white;
+            padding: 0.4rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 500;
+            border: 1px solid #ddd;
+        }
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid #ddd;
+            max-height: 480px;
+            overflow-y: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85rem;
+        }
+        th {
+            background: #f8f0ea;
+            padding: 1rem;
+            font-weight: 700;
+            color: #c0392b;
+            position: sticky;
+            top: 0;
+            border-bottom: 2px solid #e0c8bc;
+        }
+        td {
+            padding: 0.8rem 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .btn-slip {
+            background: white;
+            border: 1px solid #c0392b;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #c0392b;
+            cursor: pointer;
+        }
+        .btn-slip:hover {
+            background: #c0392b;
+            color: white;
+        }
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: 0.2s;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .slip-modal {
+            background: white;
+            width: 95%;
+            max-width: 900px;
+            height: 98vh;
+            max-height: 98vh;
+            border-radius: 0px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .slip-header {
+            background: #c0392b;
+            color: white;
+            padding: 1rem 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        .slip-body {
+            padding: 1rem;
+            overflow-y: auto;
+            flex: 1;
+            background: #f5f5f0;
+        }
+        /* FULL PAGE SALARY SLIP - TOP TO BOTTOM 1 PAGE */
+        .salary-slip-full {
+            background: white;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            box-shadow: 0 1px 12px rgba(0,0,0,0.1);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+        .slip-header-section {
+            text-align:center;
+            border-bottom: 1px solid #c0392b;
+            padding-bottom: 12px;
+            margin-bottom: 10px;
+        }
+        .company-name {
+            font-size: 1rem;
+            font-weight: 800;
+            color: #c0392b;
+            letter-spacing: 1px;
+        }
+        .company-address {
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 6px;
+            line-height: 1.4;
+        }
+        .slip-title {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 600;
+            background: #f0e6e0;
+            padding: 10px;
+            margin: 14px 0;
+            color: #c0392b;
+            letter-spacing: 1px;
+        }
+        .emp-info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            background: #fafaf5;
+            padding: 18px;
+            margin: 15px 0;
+            border: 0.5px solid #e0d6cf;
+        }
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dotted #ccc;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #c0392b;
+        }
+        .earnings-deductions {
+            display: flex;
+            gap: 25px;
+            margin: 20px 0;
+            font-size:18px;
+        }
+        .earnings-box, .deductions-box {
+            flex: 1;
+            border: 0.5px solid #e0d6cf;
+            padding: 10px;
+            background: #fff;
+        }
+        .box-title {
+            font-weight: 600;
+            font-size: 1rem;
+            padding-bottom: 10px;
+            margin-bottom: 12px;
+            border-bottom: 0.5px solid #c0392b;
+            color: #c0392b;
+            text-align: center;
+        }
+        .salary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            border-bottom: 1px dotted #f0e0d8;
+        }
+        .total-row-salary {
+            font-weight: 800;
+            border-top: 0.5px solid #c0392b;
+            margin-top: 10px;
+            padding-top: 10px;
+            font-size: 0.95rem;
+            color: #2c3e50;
+        }
+        .net-pay-section {
+            background: #f0e6e0;
+            padding: 12px 15px;
+            margin: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 0.5px solid #d0bcae;
+        }
+        .net-label {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #c0392b;
+        }
+        .net-amount {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        .signature-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1.5px dashed #aaa;
+        }
+        .sign-box {
+            text-align: center;
+            width: 40%;
+        }
+        .sign-line {
+            border-top: 0.5px solid #333;
+            margin-top: 30px;
+            padding-top: 8px;
+            font-size: 0.75rem;
+            color: #666;
+            width: 100%;
+        }
+        .generated-info {
+            text-align: center;
+            font-size: 0.7rem;
+            color: #777;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 0.5px solid #eee;
+        }
+        .download-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: flex-end;
+            padding: 1rem 1.5rem 1.5rem;
+            background: white;
+            border-top: 1px solid #eee;
+            flex-shrink: 0;
+        }
+        .btn-download {
+            background: #c0392b;
+            border: none;
+            padding: 0.6rem 1.3rem;
+            border-radius: 4px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .btn-download-pdf {
+            background: #e67e22;
+        }
+        footer.main-footer {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.7rem;
+            color: #c0392b;
+            padding: 1rem;
+            border-top: 1.5px solid #ddd;
+        }
+        @media (max-width: 700px) {
+            .earnings-deductions { flex-direction: column; }
+            .emp-info-grid { grid-template-columns: 1fr; }
+            body { padding: 0.8rem; }
+            .salary-slip-full { padding: 1rem; }
+            .net-amount { font-size: 1.3rem; }
+        }
+        .success-msg {
+            background: #e8f5e9;
+            color: #2e7d32;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+  
